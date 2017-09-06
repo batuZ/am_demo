@@ -1,0 +1,11 @@
+<h1>Editing Group</h1>
+<%console%>
+<%= render 'form', group: @group %>
+
+<%= link_to 'Show', @group %> |
+<%= link_to 'Back', group_path %>
+
+<br/><br/><b>DEBUG:</b><br/>
+User: <%=  @user.inspect %><br/><br/>
+Project:<%= @project.inspect %><br/><br/>
+Groups:<%= @group.inspect %>

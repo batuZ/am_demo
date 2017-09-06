@@ -1,0 +1,38 @@
+
+<% console %>
+<p>
+  <strong>用户:</strong>
+  <%= @user.name %>
+  &nbsp;&nbsp;&nbsp;&nbsp;
+  <%= link_to '修改用户信息', edit_user_path(@user) %> |
+  <%= link_to '退出登录', logout_path , method: :delete%> 
+</p><br/>
+
+<table>
+  <thead>
+    <tr>
+      <th> 我的项目 </th>
+      <th>  状态  </th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @projects.each do |pro| %>
+      <tr>
+        <td><%= link_to pro.name, project_path(pro) %></td>
+        <td>？？？</td>
+        <td><%= link_to '查看成果' %></td>
+        <td><%= link_to '删除项目', project_path(pro), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      
+      </tr>
+    <% end %>
+  </tbody>
+</table><br/>
+
+<%= link_to '新建项目', new_user_project_path(@user) %>
+
+
+
+<br/><br/><b>DEBUG:</b><br/>
+User: <%=  @user.inspect %><br/><br/>
+Projects:<%= @projects.inspect %>

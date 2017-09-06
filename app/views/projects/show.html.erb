@@ -1,0 +1,51 @@
+<% console %>
+<div  align="right" >
+  <b>当前登录用户：</b>
+  <%=link_to @user.name, user_path(@user) %>
+</div>
+
+<p>
+  <strong>项目名称:</strong>
+  <%= @project.name %>
+  &nbsp;&nbsp;&nbsp;&nbsp;
+  <%= link_to '编辑', edit_project_path(@project) %> 
+</p>
+
+<p>
+  <strong>状态: ？？？</strong>
+</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>照片组</th>
+      <th>width</th>
+      <th>height</th>
+      <th>焦距</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @groups.each do |grp| %>
+      <tr>
+        <td><%= link_to grp.name, group_path(grp) %></td>
+        <td><%= grp.width %></td>
+        <td><%= grp.height %></td> 
+        <td><%= grp.focal_length %></td>
+        <td><%= link_to '删除', group_path(grp), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<br/><%= link_to '增加照片组',new_project_group_path(@project) %>
+
+
+<br/><br/><b>DEBUG:</b><br/>
+User: <%=  @user.inspect %><br/><br/>
+Project:<%= @project.inspect %><br/><br/>
+Groups:<%= @groups.inspect %>
+<%= "#{new_project_group_path(@project) }" %>
+
+
+
+
+

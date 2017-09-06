@@ -1,0 +1,16 @@
+<% console %>
+<div  align="right" >
+  <b>当前登录用户：</b>
+  <%=link_to @user.name,user_path(@user)%>
+  <br/>
+  <b>当前照片组：</b>
+  <%=link_to @group.name, group_path(@group) %>
+
+</div>
+
+<p>
+  <strong>Name:</strong>
+  <%= @photo.name %>
+</p>
+
+<%= link_to 'Delete', photo_path(@photo),method: :delete, data: { confirm: 'Are you sure?' }  %>

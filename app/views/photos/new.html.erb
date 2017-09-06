@@ -1,0 +1,14 @@
+<h1>打开照片</h1>
+<% console %>
+<div>
+	<%= form_for @photo, url: {action: "create"} do |f| %> 
+    	<%= f.file_field :avatar , multiple: true %>
+		<br/>
+		<%= f.submit '创建' %>  <!-- , controller: 'projects', action: 'create', method: 'post' -->
+	<% end %>
+
+</div>	
+
+@group: <%=  @group.inspect %><br/>
+@project: <%=  @photo.inspect %><br/>
+params: <%= params.inspect %>

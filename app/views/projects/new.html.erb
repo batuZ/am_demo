@@ -1,0 +1,15 @@
+<h1>创建项目</h1>
+<% console %>
+<div>
+
+	<%= form_for @project, url: {action: "create"} do |f| %> 
+		<%= f.label '项目名：' %>		
+		<%= f.text_field :name %>
+		<br/><br/>
+		<%= f.submit '创建' %>  <!-- , controller: 'projects', action: 'create', method: 'post' -->
+	<% end %>
+
+</div>	
+
+<%= debug @user %>
+<%= debug @project %>

@@ -1,0 +1,16 @@
+<h1>新建照片组</h1>
+<% console %>
+<div>
+
+	<%= form_for @group, url: {action: "create"} do |f| %> 
+		<%= f.label '照片组名：' %>		
+		<%= f.text_field :name %>
+		<br/><br/>
+		<%= f.submit '创建' %>  <!-- , controller: 'projects', action: 'create', method: 'post' -->
+	<% end %>
+
+</div>	
+
+@group: <%=  @group.inspect %><br/>
+@project: <%=  @project.inspect %><br/>
+params: <%= params.inspect %>

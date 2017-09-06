@@ -1,0 +1,47 @@
+<% console %>
+
+<div  align="right" >
+  <b>当前登录用户：</b>
+  <%=link_to @user.name,user_path(@user)%>
+  <br/>
+  <b>当前项目：</b>
+  <%=link_to @project.name,project_path(@project) %>
+</div>
+————————————————————————————————————————————————————————————————————————————————
+<p>
+  <strong>照片组:</strong>
+  <%= @group.name %>
+  &nbsp;&nbsp;&nbsp;&nbsp;
+  <%= link_to '编辑', edit_group_path(@group) %> 
+</p>
+<table>
+  <thead>
+    <tr>
+      <th>照片名</th>
+      <th>经度</th>
+      <th>纬度</th>
+      <th>高度</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <%ss = @photos.sort{|x,y| x.name <=> y.name} %><!按名称排个序>
+    <% ss.each do |pht| %>
+      <tr>
+        <td><%= link_to pht.name, photo_path(pht) %></td>
+        <td><%= pht.X %></td>
+        <td><%= pht.Y %></td>
+        <td><%= pht.Z %></td>
+        <td><%= link_to '删除', photo_path(pht), method: :delete %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<br/><%= link_to '添加照片', new_group_photo_path(@group) %>
+————————————————————————————————————————————————————————————————————————————————
+
+<br/><br/><b>DEBUG:</b><br/>
+User: <%=  @user.inspect %><br/><br/>
+Project:<%= @project.inspect %><br/><br/>
+Group:<%= @group.inspect %>
+Photos: <%= @photos.inspect %>

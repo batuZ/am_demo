@@ -1,0 +1,26 @@
+<h1>注册用户</h1>
+
+<% if @user.errors.any? %>
+	<div>
+		asdfasdf <%= pluralize(@user.errors.count,'error') %>
+	</div>
+	<ul>
+		<% @user.errors.full_messages.each do |msg| %>
+			<%= msg %><br/>
+		<%end%>
+	</ul>
+<% end %>
+
+<div>
+	<%= form_for(@user) do |f| %>
+		<%= f.label '用户名：' %>		
+		<%= f.text_field :name %>
+		<%= f.label '密码：' %>		
+		<%= f.password_field :password %>
+		<%= f.label '确认密码：' %>	
+		<%= f.password_field :password_confirmation %>
+		<br/><br/>
+		<%= f.submit '创建' %>
+	<% end %>
+
+</div>	
